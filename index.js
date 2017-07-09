@@ -1,6 +1,19 @@
 var express = require('express');
 var app = express();
-var http = require('http');
+
+app.all('*', function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
+    res.header("X-Powered-By",' 3.2.1')
+    res.header("Content-Type", "application/json;charset=utf-8");
+    next();
+});
+
+
+app.listen(8028);
+console.log('Listening on port 8028...');
+
 
 //小程序端
 app.use('/wx/login',require('./router/login'));//微信登录
@@ -15,9 +28,18 @@ app.use('/wx/getShareDetail',require('./router/getShareDetail'));//获取分享�
 app.use('/wx/getLinkRecord',require('./router/getLinkRecord'));//获取好友帮抢记录
 
 //PC后台管理端
-app.use('/pc/login',require('./router/pc/login'));//微信登录
+app.use('/pc/login',require('./router/pc/login'));//登录
+app.use('/pc/getBrandList',require('./router/pc/getBrandList'));//获取商品品牌列表
+app.use('/pc/addBrand',require('./router/pc/addBrand'));//添加商品品牌
+app.use('/pc/delBrand',require('./router/pc/delBrand'));//删除商品品牌列表
+app.use('/pc/addType',require('./router/pc/addType'));//添加商品类型
+app.use('/pc/addSubType',require('./router/pc/addSubType'));//添加商品子类型
 
-var httpServer = http.createServer(app);
-httpServer.listen(8028,function(){
- console.log("httpServer is OK");
-});
+
+
+
+
+// var httpServer = http.createServer(app);
+// httpServer.listen(8028,function(){
+//  console.log("httpServer is OK");
+// });
