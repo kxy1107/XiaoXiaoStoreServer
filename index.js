@@ -32,8 +32,12 @@ app.use('/pc/login',require('./router/pc/login'));//登录
 app.use('/pc/getBrandList',require('./router/pc/getBrandList'));//获取商品品牌列表
 app.use('/pc/addBrand',require('./router/pc/addBrand'));//添加商品品牌
 app.use('/pc/delBrand',require('./router/pc/delBrand'));//删除商品品牌列表
+app.use('/pc/getTypeList',require('./router/pc/getTypeList'));//获取商品类型列表
 app.use('/pc/addType',require('./router/pc/addType'));//添加商品类型
+app.use('/pc/delType',require('./router/pc/delType'));//删除商品类型
+app.use('/pc/getSubTypeList',require('./router/pc/getSubTypeList'));//获取商品子类型列表
 app.use('/pc/addSubType',require('./router/pc/addSubType'));//添加商品子类型
+app.use('/pc/delSubType',require('./router/pc/delSubType'));//删除商品子类型
 
 
 

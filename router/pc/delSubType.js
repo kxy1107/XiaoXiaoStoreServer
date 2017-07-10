@@ -5,15 +5,11 @@ var sql = require("../../db/mysqlConnect");
 
 router.get('/', function (req, res) {
 
-
-        let TypeID = req.query.TypeID;
-        let SubTypeID = req.query.SubTypeID;
-        let SubTypeName = req.query.SubTypeName;
-        let SubTypeIcon = '';
         let UserNo = req.query.UserNo;
+        let SubTypeID = req.query.SubTypeID;
         //链接数据库，执行存储过程
-        let proc = "CALL PROC_PC_ADD_SUBTYPE(?,?,?,?,?)";//存储过程名称
-        let params = [TypeID, SubTypeID, SubTypeName, SubTypeIcon,UserNo];//存储过程参数
+        let proc = "CALL PROC_PC_DEL_SUBTYPE(?,?)";//存储过程名称
+        let params = [UserNo,SubTypeID];//存储过程参数
         sql.query(proc, params, function (rows, fields) {
                 console.log(rows);
                 let responseData = {};

@@ -9,9 +9,9 @@ router.get('/', function (req, res) {
         let TypeID = req.query.TypeID;
         let UserNo = req.query.UserNo;
         let TypeName = req.query.TypeName;
-        let TypeIcon = req.query.TypeIcon;
+         let TypeIcon = '';
         //链接数据库，执行存储过程
-        let proc = "CALL PROC_PC_ADD_TYPE(?,?)";//存储过程名称
+        let proc = "CALL PROC_PC_ADD_TYPE(?,?,?,?)";//存储过程名称
         let params = [TypeID, UserNo, TypeName,TypeIcon];//存储过程参数
         sql.query(proc, params, function (rows, fields) {
                 console.log(rows);
