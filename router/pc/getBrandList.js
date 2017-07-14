@@ -11,7 +11,7 @@ router.get('/',function(req,res){
         let PageSize = req.query.PageSize;
 
        //链接数据库，执行存储过程
-        let proc = "CALL PROC_PC_GET_BRANDLIST(?,?,?,?)";//存储过程名称
+        let proc = "CALL PROC_PC_GET_BRAND_LIST(?,?,?,?)";//存储过程名称
         let params = [UserNo,BrandName,PageIndex,PageSize];//存储过程参数
         sql.query(proc, params, function (rows, fields) {
                 console.log(rows);
