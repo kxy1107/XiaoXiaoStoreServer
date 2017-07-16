@@ -18,8 +18,11 @@ router.get('/', function (req, res) {
                 let responseData = {};
                 responseData.Code = rows[0][0]["Code"];
                 responseData.Message = rows[0][0]["Message"];
+
+                responseData.TotalCount = rows[1][0]["TotalCount"];
+
                 let subTypeList = [];
-                for (let key of rows[1]) {
+                for (let key of rows[2]) {
                         let list = {};
                         list.typeID = key["ShopTypeID"];
                         list.typeName = key["ShopTypeName"];

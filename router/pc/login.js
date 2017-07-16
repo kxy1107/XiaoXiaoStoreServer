@@ -16,6 +16,7 @@ router.get('/', function (req, res) {
                 let responseData = {};
                 responseData.Code = rows[0][0]["Code"];
                 responseData.Message = rows[0][0]["Message"];
+                
                 let userInfo = {};
                 userInfo.UserNo = rows[1][0]['UserNo'];
                 userInfo.UserName = rows[1][0]['UserName'];

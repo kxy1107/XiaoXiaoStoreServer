@@ -38,6 +38,12 @@ app.use('/pc/delType',require('./router/pc/delType'));//删除商品类型
 app.use('/pc/getSubTypeList',require('./router/pc/getSubTypeList'));//获取商品子类型列表
 app.use('/pc/addSubType',require('./router/pc/addSubType'));//添加商品子类型
 app.use('/pc/delSubType',require('./router/pc/delSubType'));//删除商品子类型
+app.use('/pc/getAttributeList',require('./router/pc/getAttributeList'));//获取商品属性列表
+app.use('/pc/addAttribute',require('./router/pc/addAttribute'));//添加商品属性
+app.use('/pc/delAttribute',require('./router/pc/delAttribute'));//删除商品属性
+app.use('/pc/getAttributeValueList',require('./router/pc/getAttributeValueList'));//获取商品属性值列表
+app.use('/pc/addAttributeValue',require('./router/pc/addAttributeValue'));//添加商品属性值
+app.use('/pc/delAttributeValue',require('./router/pc/delAttributeValue'));//删除商品属性值
 
 
 
