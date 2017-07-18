@@ -44,6 +44,10 @@ app.use('/pc/delAttribute',require('./router/pc/delAttribute'));//删除商品�
 app.use('/pc/getAttributeValueList',require('./router/pc/getAttributeValueList'));//获取商品属性值列表
 app.use('/pc/addAttributeValue',require('./router/pc/addAttributeValue'));//添加商品属性值
 app.use('/pc/delAttributeValue',require('./router/pc/delAttributeValue'));//删除商品属性值
+app.use('/pc/getShopInfoList',require('./router/pc/getShopInfoList'));//获取商品信息列表
+app.use('/pc/addShopInfo',require('./router/pc/addShopInfo'));//添加商品信息
+app.use('/pc/delShopInfo',require('./router/pc/delShopInfo'));//删除商品信息
+app.use('/pc/getShopInfoDetail',require('./router/pc/getShopInfoDetail'));//获取商品详情信息
 
 
 
