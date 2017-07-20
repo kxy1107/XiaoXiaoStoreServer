@@ -49,6 +49,8 @@ app.use('/pc/addShopInfo',require('./router/pc/addShopInfo'));//添加商品信�
 app.use('/pc/delShopInfo',require('./router/pc/delShopInfo'));//删除商品信息
 app.use('/pc/getShopInfoDetail',require('./router/pc/getShopInfoDetail'));//获取商品详情信息
 
+app.use('/pc/getTypeSubType',require('./router/pc/getTypeSubType'));//获取商品详情信息-获取类型和子类型关联数据
+
 
 
 

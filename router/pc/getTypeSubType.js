@@ -5,6 +5,7 @@ var sql = require("../../db/mysqlConnect");
 
 router.get('/', function (req, res) {
 
+
         let UserNo = req.query.UserNo;
         let SubTypeName = req.query.SubTypeName;
         let PageIndex = req.query.PageIndex;
@@ -24,10 +25,20 @@ router.get('/', function (req, res) {
                         let list = {};
                         list.typeID = key["ShopTypeID"];
                         list.typeName = key["ShopTypeName"];
-                       
-                        typeList.push(list);
+                        let isExist = false;//已存在则不添加
+                        for (let item of typeList) {
+                                if (item.typeID == list.typeID) {
+                                        isExist = true;
+                                        break;
+                                }
+                        }
+                        if (!isExist) {
+                                typeList.push(list);
+                        }
+
+
                 }
-                responseData.SubTypeList = subTypeList;
+                responseData.SubTypeList = typeList;
                 res.json(
                         responseData
                 )
