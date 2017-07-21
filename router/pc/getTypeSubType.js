@@ -7,13 +7,10 @@ router.get('/', function (req, res) {
 
 
         let UserNo = req.query.UserNo;
-        let SubTypeName = req.query.SubTypeName;
-        let PageIndex = req.query.PageIndex;
-        let PageSize = req.query.PageSize;
 
         //链接数据库，执行存储过程
-        let proc = "CALL PROC_PC_GET_SUBTYPE_LIST(?,?,?,?)";//存储过程名称
-        let params = [UserNo, SubTypeName, PageIndex, PageSize];//存储过程参数
+        let proc = "CALL PROC_PC_GET_TYPE_SUBTYPE(?)";//存储过程名称
+        let params = [UserNo];//存储过程参数
         sql.query(proc, params, function (rows, fields) {
                 console.log(rows);
                 let responseData = {};
@@ -21,24 +18,40 @@ router.get('/', function (req, res) {
                 responseData.Message = rows[0][0]["Message"];
 
                 let typeList = [];
-                for (let key of rows[2]) {
+                for (let key of rows[1]) {
                         let list = {};
-                        list.typeID = key["ShopTypeID"];
-                        list.typeName = key["ShopTypeName"];
-                        let isExist = false;//已存在则不添加
-                        for (let item of typeList) {
-                                if (item.typeID == list.typeID) {
-                                        isExist = true;
-                                        break;
-                                }
+                        let subTypeList = [];
+
+                        list.value = key["ShopTypeID"];
+                        list.lable = key["ShopTypeName"];
+                        let arrSubTypeID = key["ShopSubTypeIDList"].split("&");
+                        let arrSubTypeName = key["ShopSubTypeNameList"].split("&");
+                        let subListLength = arrSubTypeID.length;
+
+                        for (let i = 0; i < subListLength; i++) {
+                                let subList = {};
+                                subList.value =  arrSubTypeID[i];
+                                subList.lable = arrSubTypeName[i];
+                                subTypeList.push(subList)
                         }
-                        if (!isExist) {
-                                typeList.push(list);
-                        }
+                        
+                        list.children = subTypeList;
+                        typeList.push(list);
+
+                        // let isExist = false;//已存在则不添加
+                        // for (let item of typeList) {
+                        //         if (item.typeID == list.typeID) {
+                        //                 isExist = true;
+                        //                 break;
+                        //         }
+                        // }
+                        // if (!isExist) {
+                        //         typeList.push(list);
+                        // }
 
 
                 }
-                responseData.SubTypeList = typeList;
+                responseData.TypeSubTypeList = typeList;
                 res.json(
                         responseData
                 )
