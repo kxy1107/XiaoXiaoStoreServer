@@ -1,19 +1,21 @@
 var express = require('express');
 var app = express();
+var url = require("url");
+var path = require("path");
+var fs = require("fs");
 
 app.all('*', function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
+    res.header("Content-Type", "application/json; charset=utf-8");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
     res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
     res.header("X-Powered-By",' 3.2.1')
-    res.header("Content-Type", "application/json;charset=utf-8");
     next();
 });
 
 
 app.listen(8028);
 console.log('Listening on port 8028...');
-
 
 //小程序端
 app.use('/wx/login',require('./router/login'));//微信登录
@@ -51,6 +53,9 @@ app.use('/pc/getShopInfoDetail',require('./router/pc/getShopInfoDetail'));//获�
 
 app.use('/pc/getTypeSubType',require('./router/pc/getTypeSubType'));//获取商品详情信息-获取类型和子类型关联数据
 
+app.use('/pc/uploadBanner',require('./router/pc/uploadBanner'));//上传图片
+// app.use(express.static('public'));
+ app.use('*.png',require('./router/pc/getImg'));//上传图片
 
 
 

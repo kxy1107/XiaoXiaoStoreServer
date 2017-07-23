@@ -23,7 +23,7 @@ router.get('/', function (req, res) {
                         let subTypeList = [];
 
                         list.value = key["ShopTypeID"];
-                        list.lable = key["ShopTypeName"];
+                        list.label = key["ShopTypeName"];
                         let arrSubTypeID = key["ShopSubTypeIDList"].split("&");
                         let arrSubTypeName = key["ShopSubTypeNameList"].split("&");
                         let subListLength = arrSubTypeID.length;
@@ -31,7 +31,7 @@ router.get('/', function (req, res) {
                         for (let i = 0; i < subListLength; i++) {
                                 let subList = {};
                                 subList.value =  arrSubTypeID[i];
-                                subList.lable = arrSubTypeName[i];
+                                subList.label = arrSubTypeName[i];
                                 subTypeList.push(subList)
                         }
                         
