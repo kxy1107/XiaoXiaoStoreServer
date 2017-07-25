@@ -13,7 +13,7 @@ function getNowDate(){
         strDate = "0" + strDate;
     }
     var currentdate = date.getFullYear() + month + strDate
-            + date.getHours() + date.getMinutes();
+            + date.getHours() + date.getMinutes() + date.getSeconds() + date.getMilliseconds();
     return currentdate;
 }
 

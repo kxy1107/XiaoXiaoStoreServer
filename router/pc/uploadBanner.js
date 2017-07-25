@@ -34,11 +34,11 @@ router.post('/', upload.single('file'), function (req, res) {
         //   filename: 'file-201707221521.png',
         //   path: 'uploads\\file-201707221521.png',
         //   size: 1729 }
-        var tmp_path = req.file.path;
 
         let responseData = {};
         responseData.Code = '1';
         responseData.Message = '成功';
+        responseData.ImgUrl = req.file.path;
         res.json(
                 responseData
         )
