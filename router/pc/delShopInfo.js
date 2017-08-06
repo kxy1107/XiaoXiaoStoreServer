@@ -9,7 +9,7 @@ router.get('/', function (req, res) {
         let ShopID = req.query.ShopID;
         //链接数据库，执行存储过程
         let proc = "CALL PROC_PC_DEL_SHOPINFO(?,?)";//存储过程名称
-        let params = [UserNo,ShopID];//存储过程参数
+        let params = [ShopID,UserNo,];//存储过程参数
         sql.query(proc, params, function (rows, fields) {
                 console.log(rows);
                 let responseData = {};

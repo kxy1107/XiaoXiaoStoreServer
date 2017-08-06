@@ -18,8 +18,7 @@ app.listen(8028);
 console.log('Listening on port 8028...');
 
 //小程序端
-app.use('/wx/login',require('./router/login'));//微信登录
-app.use('/wx/getUserInfo',require('./router/getUserInfo'));//同步获取用户信息
+app.use('/wx/login',require('./router/wx/login'));//微信登录
 app.use('/wx/addMerchants',require('./router/addMerchants'));//注册成为商家
 app.use('/wx/addShareInfo',require('./router/addShareInfo'));//添加分享内容
 app.use('/wx/getHotShareInfo',require('./router/getHotShareInfo'));//获取热门分享内容列表

@@ -16,13 +16,14 @@ router.get('/', function (req, res) {
         let IsHot = req.query.IsHot;
         let IsNew = req.query.IsNew;
         let IndexImgUrl = req.query.IndexImgUrl;
+        let ShopCoverImgUrl = req.query.ShopCoverImgUrl;
         let ShopBannerImgUrl = req.query.ShopBannerImgUrl;
         let Attribute = req.query.Attribute;
         let AttributeValue = req.query.AttributeValue;
         //链接数据库，执行存储过程
-        let proc = "CALL PROC_PC_ADD_SHOPINFO(?,?,?,?,?,?,?,?,?,?,?)";//插入商品信息存储过程
+        let proc = "CALL PROC_PC_ADD_SHOPINFO(?,?,?,?,?,?,?,?,?,?,?,?)";//插入商品信息存储过程
         let params = [UserNo, ShopTitle, ShopPrice, ShopBrandID, ShopDescribe, ShopTypeID, ShopSubTypeID,
-                IsIndexBanner, IsHot, IsNew, IndexImgUrl];//存储过程参数
+                IsIndexBanner, IsHot, IsNew, IndexImgUrl,ShopCoverImgUrl];//存储过程参数
         sql.query(proc, params, function (rows, fields) {
                 let ShopID = rows[1][0]["ShopID"];
                 let procShopImg = "CALL PROC_PC_ADD_SHOP_BANNER_IMG(?,?,?)";//插入商品轮播图存储过程

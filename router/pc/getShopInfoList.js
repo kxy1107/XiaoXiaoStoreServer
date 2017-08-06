@@ -30,7 +30,8 @@ router.get('/', function (req, res) {
                         list.shopID = key["ShopID"];
                         list.shopTitle = key["ShopTitle"];
                         list.shopPrice = key["ShopPrice"];
-                        list.shopViews = key["ShopViews"];
+                        list.shopViews = key["ShopViews"] == null ? 0 : key["ShopViews"];
+                        list.isIndexBanner = key["IsIndexBanner"];
                         list.isHot = key["IsHot"];
                         list.isNew = key["IsNew"];
                         list.brandID = key["BrandID"];
