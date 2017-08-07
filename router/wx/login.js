@@ -35,9 +35,13 @@ router.get('/', function (req, resLogin) {
             let responseData = {};
             responseData.Code = rows[0][0]["Code"];
             responseData.Message = rows[0][0]["Message"];
-            responseData.UserNo = rows[1][0]["UserNo"];
-            responseData.UserName = rows[1][0]["UserName"];
-            responseData.UserImg = rows[1][0]["UserImg"];
+            let UserInfo = {
+                UserNo:rows[1][0]["UserNo"],
+                UserName:rows[1][0]["UserName"],
+                UserImg: rows[1][0]["UserImg"]
+            }
+            responseData.UserInfo = UserInfo;
+   
             resLogin.json(
                 responseData
             )
