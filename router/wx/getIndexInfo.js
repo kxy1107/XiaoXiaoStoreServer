@@ -1,7 +1,7 @@
 'user static'
 var express = require('express');
 var router = express.Router();
-var sql = require("../db/mysqlConnect");
+var sql = require("../../db/mysqlConnect");
 
 router.get('/', function (req, res) {
 
