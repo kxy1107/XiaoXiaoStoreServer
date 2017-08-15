@@ -24,10 +24,13 @@ router.get('/', function (req, res) {
                 let subTypeList = [];
                 for (let key of rows[2]) {
                         let list = {};
+
                         list.typeID = key["ShopTypeID"];
                         list.typeName = key["ShopTypeName"];
+                        list.typeIcon = key["ShopTypeIcon"];
                         list.subTypeID = key["ShopSubTypeID"];
                         list.subTypeName = key["ShopSubTypeName"];
+                        list.subTypeIcon = key["ShopSubTypeIcon"];
                         subTypeList.push(list);
                 }
                 responseData.SubTypeList = subTypeList;

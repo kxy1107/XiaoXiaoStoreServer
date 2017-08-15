@@ -10,6 +10,8 @@ app.all('*', function(req, res, next) {
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
     res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
     res.header("X-Powered-By",' 3.2.1')
+     res.header("Access-Control-Allow-Credentials","true");
+   
     next();
 });
 
@@ -20,6 +22,8 @@ console.log('Listening on port 8028...');
 //小程序端
 app.use('/wx/login',require('./router/wx/login'));//微信登录
 app.use('/wx/getIndexInfo',require('./router/wx/getIndexInfo'));//微信获取首页信息
+app.use('/wx/getTypeList',require('./router/wx/getTypeList'));//微信获取类型列表
+app.use('/wx/getSubTypeList',require('./router/wx/getSubTypeList'));//微信获取子类型列表
 
 
 //PC后台管理端

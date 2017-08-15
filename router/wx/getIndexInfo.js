@@ -6,11 +6,11 @@ var sql = require("../../db/mysqlConnect");
 router.get('/', function (req, res) {
 
         let WxUserNo = req.query.UserNo;
-        let BelongUser = "";
+        let BelongUser = "9A91BB01C585D794A24B498D4F591097";
 
         //链接数据库，执行存储过程
-        let proc = "CALL PROC_WX_GET_INDEX_INFO(?)";//存储过程名称
-        let params = [UserNo, BelongUser];//存储过程参数
+        let proc = "CALL PROC_WX_GET_INDEX_INFO(?,?)";//存储过程名称
+        let params = [WxUserNo, BelongUser];//存储过程参数
 
         sql.query(proc, params, function (rows, fields) {
                 console.log(rows);
@@ -28,7 +28,7 @@ router.get('/', function (req, res) {
                 responseData.BannerList = bannerList;
 
                 let hotList = [];
-                for (let key of row[2]) {
+                for (let key of rows[2]) {
                         let list = {};
                         list.ShopID = key["ShopID"];
                         list.ShopTitle = key["ShopTitle"];
@@ -40,7 +40,7 @@ router.get('/', function (req, res) {
                 responseData.HotList = hotList;
 
                 let newList = [];
-                for (let key of row[2]) {
+                for (let key of rows[3]) {
                         let list = {};
                         list.ShopID = key["ShopID"];
                         list.ShopTitle = key["ShopTitle"];

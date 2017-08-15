@@ -8,6 +8,8 @@ var path = require('path');
 
 
 router.get('/', function (req, response) {
+         console.log(111111111)
+
         //mime类型
         var mime = {
                 "css": "text/css",
@@ -37,16 +39,12 @@ router.get('/', function (req, response) {
         ext = ext ? ext.slice(1) : 'unknown';
         var contentType = mime[ext] || "text/plain";
 
-        response.writeHead(200, { "content-type": contentType });
-        //建立流对象，读文件
-        var stream = fs.createReadStream(filePath);
-        //错误处理
-        stream.on('error', function () {
-                response.writeHead(500, { "content-type": contentType });
-                response.end("<h1>500 Server Error</h1>");
-        });
-        //读取文件
-        stream.pipe(response);
+       response.setHeader("Content-Type", contentType);
+        //格式必须为 binary 否则会出错
+        var content =  fs.readFileSync(filePath,"binary");   
+        response.writeHead(200, "Ok");
+        response.write(content,"binary"); //格式必须为 binary，否则会出错
+        response.end();
 });
 
 module.exports = router;

@@ -3,7 +3,6 @@ var express = require('express');
 var router = express.Router();
 var multer = require('multer');
 var timeUtil = require('../../util/TimeUtil.js')
-var sql = require("../../db/mysqlConnect");
 
 
 
@@ -38,7 +37,8 @@ router.post('/', upload.single('file'), function (req, res) {
         let responseData = {};
         responseData.Code = '1';
         responseData.Message = '成功';
-        responseData.ImgUrl = req.file.path;
+        let url = 'public/' + req.file.filename;
+        responseData.ImgUrl = url;
         res.json(
                 responseData
         )

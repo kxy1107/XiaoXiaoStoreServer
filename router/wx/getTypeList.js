@@ -6,7 +6,7 @@ var sql = require("../../db/mysqlConnect");
 router.get('/',function(req,res){
       
         let UserNo = req.query.UserNo;
-        let BelongUser = "";
+        let BelongUser = "9A91BB01C585D794A24B498D4F591097";
 
        //链接数据库，执行存储过程
         let proc = "CALL PROC_WX_GET_TYPE_LIST(?,?)";//存储过程名称
@@ -21,6 +21,7 @@ router.get('/',function(req,res){
                  for (let key of rows[1]) {
                         let list = {};
                         list.typeID = key["ShopTypeID"];
+                        list.typeIcon = key["ShopTypeIcon"];
                         list.typeName = key["ShopTypeName"];
                         typeList.push(list);
                 }
