@@ -39,7 +39,7 @@ router.get('/', function (req, res) {
                 for (let attributKey of Attribute) {
                         let AttributeID = attributKey.attributeID;
                         let AttributeName = attributKey.attributeName;
-                        let paramsAttribut = [UserNo, ShopID, AttributeID, AttributeName];//存储过程参数
+                        let paramsAttribut = [ShopID,UserNo, AttributeID, AttributeName];//存储过程参数
                         sql.query(procAttribut, paramsAttribut, function (rows, fields) {
 
                         })

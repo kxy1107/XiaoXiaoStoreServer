@@ -9,7 +9,7 @@ router.get('/', function (req, res) {
         let SubTypeID = req.query.SubTypeID;
         //链接数据库，执行存储过程
         let proc = "CALL PROC_PC_DEL_SUBTYPE(?,?)";//存储过程名称
-        let params = [UserNo,SubTypeID];//存储过程参数
+        let params = [SubTypeID,UserNo];//存储过程参数
         sql.query(proc, params, function (rows, fields) {
                 console.log(rows);
                 let responseData = {};

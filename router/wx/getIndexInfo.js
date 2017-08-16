@@ -33,7 +33,7 @@ router.get('/', function (req, res) {
                         list.ShopID = key["ShopID"];
                         list.ShopTitle = key["ShopTitle"];
                         list.ShopPrice = key["ShopPrice"];
-                        list.ShopViews = key["ShopViews"];
+                        list.ShopViews = key["ShopViews"] == null ? 0: key["ShopViews"];
                         list.ImgUrl = key["ImgUrl"];
                         hotList.push(list);
                 }
@@ -45,7 +45,7 @@ router.get('/', function (req, res) {
                         list.ShopID = key["ShopID"];
                         list.ShopTitle = key["ShopTitle"];
                         list.ShopPrice = key["ShopPrice"];
-                        list.ShopViews = key["ShopViews"];
+                        list.ShopViews = key["ShopViews"] == null ? 0: key["ShopViews"];
                         list.ImgUrl = key["ImgUrl"];
                         newList.push(list);
                 }

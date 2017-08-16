@@ -23,6 +23,7 @@ router.get('/', function (req, res) {
                 shopInfoList.shopTitle = rows[1][0]["ShopTitle"];
                 shopInfoList.shopPrice = rows[1][0]["ShopPrice"];
                 shopInfoList.shopViews = rows[1][0]["ShopViews"];
+                shopInfoList.shopDescribe = rows[1][0]["ShopDescribe"];
                 shopInfoList.isHot = rows[1][0]["IsHot"];
                 shopInfoList.isNew = rows[1][0]["IsNew"];
                 shopInfoList.brandID = rows[1][0]["BrandID"];
@@ -30,6 +31,7 @@ router.get('/', function (req, res) {
                 shopInfoList.shopTypeID = rows[1][0]["ShopTypeID"];
                 shopInfoList.shopSubTypeID = rows[1][0]["ShopSubTypeID"];
                 shopInfoList.shopSubTypeName = rows[1][0]["ShopSubTypeName"];
+
 
                 responseData.ShopInfoList = shopInfoList;
                 res.json(

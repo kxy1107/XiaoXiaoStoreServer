@@ -38,18 +38,7 @@ router.get('/', function (req, res) {
                         list.children = subTypeList;
                         typeList.push(list);
 
-                        // let isExist = false;//已存在则不添加
-                        // for (let item of typeList) {
-                        //         if (item.typeID == list.typeID) {
-                        //                 isExist = true;
-                        //                 break;
-                        //         }
-                        // }
-                        // if (!isExist) {
-                        //         typeList.push(list);
-                        // }
-
-
+                      
                 }
                 responseData.TypeSubTypeList = typeList;
                 res.json(

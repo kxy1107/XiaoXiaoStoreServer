@@ -9,7 +9,7 @@ router.get('/', function (req, res) {
         let TypeID = req.query.TypeID;
         //链接数据库，执行存储过程
         let proc = "CALL PROC_PC_DEL_TYPE(?,?)";//存储过程名称
-        let params = [UserNo,TypeID];//存储过程参数
+        let params = [TypeID,UserNo];//存储过程参数
         sql.query(proc, params, function (rows, fields) {
                 console.log(rows);
                 let responseData = {};

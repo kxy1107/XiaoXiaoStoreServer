@@ -2,7 +2,7 @@
 var mysql = require('mysql'); //导入mysql Module  
   
 var pool = mysql.createPool({  
-    host: '',  
+    host: '123.56.24.108',  
     user: 'root',  
    // password: '*6BB4837EB74329105EE4568DDA7DC67ED2CA2AD9',  
     password: '111111',  

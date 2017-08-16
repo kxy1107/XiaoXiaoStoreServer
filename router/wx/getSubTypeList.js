@@ -24,7 +24,6 @@ router.get('/', function (req, res) {
                         let list = {};
                         list.typeID = key["ShopTypeID"];
                         list.typeName = key["ShopTypeName"];
-                        list.typeIcon = key["ShopTypeIcon"];
                         list.subTypeID = key["ShopSubTypeID"];
                         list.subTypeName = key["ShopSubTypeName"];
                         list.subTypeIcon = key["ShopSubTypeIcon"];
