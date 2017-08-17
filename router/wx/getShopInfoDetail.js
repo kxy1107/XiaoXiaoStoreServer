@@ -34,8 +34,11 @@ router.get('/', function (req, res) {
                 shopInfoList.shopSubTypeName = rows[1][0]["ShopSubTypeName"];
                 shopInfoList.bannerList = [];
                 shopInfoList.attributeList = [];
+
+                shopInfoList.shopCoverImgUrl = rows[2][0]["ImgUrl"];
+
                 //商品轮播图
-                 for (let key of rows[2]) {
+                 for (let key of rows[3]) {
                         let list = {};
                         list.imgID = key["ImgID"];
                         list.imgUrl = key["ImgUrl"];
@@ -43,7 +46,7 @@ router.get('/', function (req, res) {
                 }
 
               //商品属性值列表
-                for (let key of rows[3]) {
+                for (let key of rows[4]) {
                         let list = {};
                         let attributeValueList = [];
 
