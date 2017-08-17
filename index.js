@@ -24,7 +24,11 @@ app.use('/wx/login',require('./router/wx/login'));//微信登录
 app.use('/wx/getIndexInfo',require('./router/wx/getIndexInfo'));//微信获取首页信息
 app.use('/wx/getTypeList',require('./router/wx/getTypeList'));//微信获取类型列表
 app.use('/wx/getSubTypeList',require('./router/wx/getSubTypeList'));//微信获取子类型列表
-app.use('/wx/getShopInfoDetail',require('./router/wx/getShopInfoDetail'));//微信获取子类型列表
+app.use('/wx/getShopInfoDetail',require('./router/wx/getShopInfoDetail'));//微信获取商品详细
+app.use('/wx/collectShop',require('./router/wx/collectShop'));//微信收藏商品
+app.use('/wx/getCollectList',require('./router/wx/getCollectList'));//微信获取收藏列表
+app.use('/wx/getShopList',require('./router/wx/getShopList'));//微信获取商品列表
+
 
 
 //PC后台管理端
