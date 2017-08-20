@@ -12,12 +12,12 @@ router.get("/", function (req, res) {
     let PageIndex = req.query.PageIndex;
     let BelongUser = "9A91BB01C585D794A24B498D4F591097";
 
-    let proc = "CALL_PROC_WX_GET_COLLECT_LIST(?,?,?)";
+    let proc = "CALL PROC_WX_GET_SHOP_LIST(?,?,?,?,?)";
     let params = [UserNo, TypeID, BelongUser,PageSize,PageIndex];
     sql.query(proc, params, function (rows, fileds) {
         let responseData = {};
         responseData.Code = rows[0][0]["Code"];
-        responseData.Message = row[0][1]["Message"];
+        responseData.Message = rows[0][0]["Message"];
 
         let shopList = [];
         for (let key of rows[1]) {

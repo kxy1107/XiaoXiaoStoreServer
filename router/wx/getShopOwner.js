@@ -5,18 +5,19 @@ var sql = require("../../db/mysqlConnect");
 
 router.get("/",function(req,res){
     let UserNo = req.query.UserNo;
-    let ShopID = req.query.ShopID;
-    let SelectAttr = req.query.SelectAttr;
+    let BelongUser = "";
 
-    let proc = "CALL PROC_WX_COLLECT_SHOP(?,?,?)";
-    let params = [UserNo,ShopID,SelectAttr];
-
+    let proc = "CALL PROC_WX_GET_SHOP_OWNER(?,?)";
+    let params = [UserNo,BelongUser];
     sql.query(proc,params,function(rows,fields){
-        console.log(rows);
         let responseData = {};
         responseData.Code = rows[0][0]["Code"];
         responseData.Message = rows[0][0]["Message"];
-        res.json(responseData);
+        responseData.Phone = rows[1][0]["ShopOwnerPhone"];
+        responseData.QQ = rows[1][0]["ShopOwnerQQ"];
+        responseData.Wechat = rows[1][0]["ShopOwnerWechat"];
+        responseData.WechatImg = rows[1][0]["WechatImg"];
     });
+
 });
 module.exports = router;
