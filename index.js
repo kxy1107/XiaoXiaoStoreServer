@@ -27,12 +27,17 @@ app.use('/wx/getSubTypeList',require('./router/wx/getSubTypeList'));//微信获�
 app.use('/wx/getShopInfoDetail',require('./router/wx/getShopInfoDetail'));//微信获取商品详细
 app.use('/wx/collectShop',require('./router/wx/collectShop'));//微信收藏商品
 app.use('/wx/getCollectList',require('./router/wx/getCollectList'));//微信获取收藏列表
+app.use('/wx/delCollectShop',require('./router/wx/delCollectShop'));//微信删除收藏
 app.use('/wx/getShopList',require('./router/wx/getShopList'));//微信获取商品列表
+app.use('/wx/getMyInfo',require('./router/wx/getMyInfo'));//微信获取个人信息以及联系方式
 
 
 
 //PC后台管理端
 app.use('/pc/login',require('./router/pc/login'));//登录
+app.use('/pc/getMyInfo',require('./router/pc/getMyInfo'));//获取个人联系方式
+app.use('/pc/addMyInfo',require('./router/pc/addMyInfo'));//添加个人联系方式
+app.use('/pc/getUserList',require('./router/pc/getUserList'));//获取用户列表
 app.use('/pc/getBrandList',require('./router/pc/getBrandList'));//获取商品品牌列表
 app.use('/pc/addBrand',require('./router/pc/addBrand'));//添加商品品牌
 app.use('/pc/delBrand',require('./router/pc/delBrand'));//删除商品品牌列表
@@ -57,7 +62,7 @@ app.use('/pc/getTypeSubType',require('./router/pc/getTypeSubType'));//获取商�
 
 app.use('/pc/uploadBanner',require('./router/pc/uploadBanner'));//上传图片
 // app.use(express.static('public'));
- app.use('*.png',require('./router/pc/getImg'));//上传图片
+ app.use('*.png',require('./router/pc/getImg'));//获取图片
 
 
 

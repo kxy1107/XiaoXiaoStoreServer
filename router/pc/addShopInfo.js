@@ -21,7 +21,7 @@ router.get('/', function (req, res) {
         let Attribute = req.query.Attribute;
         let AttributeValue = req.query.AttributeValue;
         //链接数据库，执行存储过程
-        let proc = "CALL PROC_PC_ADD_SHOPINFO(?,?,?,?,?,?,?,?,?,?,?,?)";//插入商品信息存储过程
+        let proc = "CALL PROC_PC_ADD_SHOP_INFO(?,?,?,?,?,?,?,?,?,?,?,?)";//插入商品信息存储过程
         let params = [UserNo, ShopTitle, ShopPrice, ShopBrandID, ShopDescribe, ShopTypeID, ShopSubTypeID,
                 IsIndexBanner, IsHot, IsNew, IndexImgUrl,ShopCoverImgUrl];//存储过程参数
         sql.query(proc, params, function (rows, fields) {

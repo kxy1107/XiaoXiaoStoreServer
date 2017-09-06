@@ -26,11 +26,24 @@ router.get('/', function (req, res) {
                 shopInfoList.shopDescribe = rows[1][0]["ShopDescribe"];
                 shopInfoList.isHot = rows[1][0]["IsHot"];
                 shopInfoList.isNew = rows[1][0]["IsNew"];
+                shopInfoList.isIndexBanner = rows[1][0]["IsIndexBanner"];
                 shopInfoList.brandID = rows[1][0]["BrandID"];
                 shopInfoList.brandName = rows[1][0]["BrandName"];
                 shopInfoList.shopTypeID = rows[1][0]["ShopTypeID"];
                 shopInfoList.shopSubTypeID = rows[1][0]["ShopSubTypeID"];
                 shopInfoList.shopSubTypeName = rows[1][0]["ShopSubTypeName"];
+
+                shopInfoList.shopIndexImgUrl = rows[2][0]["ImgUrl"];
+                shopInfoList.shopCoverImgUrl = rows[3][0]["ImgUrl"];
+                shopInfoList.bannerList = [];
+                //商品轮播图
+                for (let key of rows[4]) {
+                        let list = {};
+                        list.imgID = key["ImgID"];
+                        list.imgUrl = key["ImgUrl"];
+                        shopInfoList.bannerList.push(list);
+                }
+
 
 
                 responseData.ShopInfoList = shopInfoList;
