@@ -4,9 +4,8 @@ var router = express.Router();
 var sql = require("../../db/mysqlConnect");
 
 router.get('/', function (req, res) {
-
         let WxUserNo = req.query.UserNo;
-        let BelongUser = "9A91BB01C585D794A24B498D4F591097";
+        let BelongUser = req.query.BelongUser;
 
         //链接数据库，执行存储过程
         let proc = "CALL PROC_WX_GET_INDEX_INFO(?,?)";//存储过程名称

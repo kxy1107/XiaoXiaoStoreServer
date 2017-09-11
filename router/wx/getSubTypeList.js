@@ -7,7 +7,7 @@ router.get('/', function (req, res) {
 
         let UserNo = req.query.UserNo;
         let TypeID = req.query.TypeID;
-        let BelongUser = "9A91BB01C585D794A24B498D4F591097";
+        let BelongUser = req.query.BelongUser;
       
 
         //链接数据库，执行存储过程

@@ -6,11 +6,11 @@ var sql = require("../../db/mysqlConnect");
 
 
 router.get("/", function (req, res) {
-    let UserNo = req.query.UserNo;
+    let UserNo = req.query.UserNo == null ? "":req.query.UserNo;
     let TypeID = req.query.TypeID;
     let PageSize = req.query.PageSize;
     let PageIndex = req.query.PageIndex;
-    let BelongUser = "9A91BB01C585D794A24B498D4F591097";
+    let BelongUser = req.query.BelongUser;
 
     let proc = "CALL PROC_WX_GET_SHOP_LIST(?,?,?,?,?)";
     let params = [UserNo, TypeID, BelongUser,PageSize,PageIndex];
