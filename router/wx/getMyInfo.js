@@ -6,8 +6,8 @@ var sql = require("../../db/mysqlConnect");
 
 
 router.get("/", function (req, res) {
-    let UserNo = "assd";
-    // let UserNo = req.query.UserNo;
+   
+    let UserNo = req.query.UserNo;
 
     let proc = "CALL PROC_WX_GET_MY_INFO(?)";
     let params = [UserNo];

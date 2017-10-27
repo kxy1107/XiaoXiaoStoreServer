@@ -30,6 +30,7 @@ app.use('/wx/getCollectList',require('./router/wx/getCollectList'));//微信获�
 app.use('/wx/delCollectShop',require('./router/wx/delCollectShop'));//微信删除收藏
 app.use('/wx/getShopList',require('./router/wx/getShopList'));//微信获取商品列表
 app.use('/wx/getMyInfo',require('./router/wx/getMyInfo'));//微信获取个人信息以及联系方式
+app.use('/wx/registerShoper',require('./router/wx/registerShoper'));//微信注册成为商家
 
 
 
