@@ -39,6 +39,9 @@ app.use('/pc/login',require('./router/pc/login'));//登录
 app.use('/pc/getMyInfo',require('./router/pc/getMyInfo'));//获取个人联系方式
 app.use('/pc/addMyInfo',require('./router/pc/addMyInfo'));//添加个人联系方式
 app.use('/pc/getUserList',require('./router/pc/getUserList'));//获取用户列表
+app.use('/pc/getShoperList',require('./router/pc/getShoperList'));//获取商家列表
+app.use('/pc/checkShoper',require('./router/pc/checkShoper'));//商家审核
+
 app.use('/pc/getBrandList',require('./router/pc/getBrandList'));//获取商品品牌列表
 app.use('/pc/addBrand',require('./router/pc/addBrand'));//添加商品品牌
 app.use('/pc/delBrand',require('./router/pc/delBrand'));//删除商品品牌列表
