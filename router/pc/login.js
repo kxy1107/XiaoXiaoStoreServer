@@ -18,11 +18,14 @@ router.get('/', function (req, res) {
                 responseData.Message = rows[0][0]["Message"];
                 
                 let userInfo = {};
-                userInfo.UserNo = rows[1][0]['UserNo'];
-                userInfo.UserName = rows[1][0]['UserName'];
-                userInfo.UserPhone = rows[1][0]['UserPhone'];
-                userInfo.UserQQ = rows[1][0]['UserQQ'];
-                userInfo.UserWechat = rows[1][0]['UserWechat'];
+                if(rows[1] != null && typeof rows[1] != "undefined"){
+                        userInfo.UserNo = rows[1][0]['UserNo'];
+                        userInfo.UserName = rows[1][0]['UserName'];
+                        userInfo.UserPhone = rows[1][0]['UserPhone'];
+                        userInfo.UserQQ = rows[1][0]['UserQQ'];
+                        userInfo.UserWechat = rows[1][0]['UserWechat'];
+                       
+                }
                 responseData.UserInfo = userInfo;
                 res.json(
                         responseData

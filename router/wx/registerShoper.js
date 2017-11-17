@@ -7,9 +7,10 @@ router.get("/",function(req,res){
     let UserNo = req.query.UserNo;
     let Phone = req.query.Phone;
     let UserPassword = req.query.Password;
+    let FormID = req.query.FormID;
 
-    let proc = "CALL PROC_WX_REGISTER_SHOPER(?,?,?)";
-    let params = [UserNo,Phone,UserPassword];
+    let proc = "CALL PROC_WX_REGISTER_SHOPER(?,?,?,?)";
+    let params = [UserNo,Phone,UserPassword,FormID];
 
     sql.query(proc,params,function(rows,fields){
         console.log(rows);
